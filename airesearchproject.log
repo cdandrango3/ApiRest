@@ -1,0 +1,80 @@
+
+dime 2 utilidades de cada uno
+
+Python: 
+1. Python es ampliamente utilizado para el desarrollo de aplicaciones web.
+2. Python es un lenguaje de programación ideal para el machine learning y la ciencia de datos.
+
+JavaScript:
+1. JavaScript se utiliza ampliamente para el desarrollo de aplicaciones web interactivas.
+2. JavaScript también se usa para el desarrollo de aplicaciones móviles híbridas.
+dime 2 utilidades de cada uno        // GET: Manage/UserGroupPermission/Create
+        public ActionResult Create()
+        {
+            var model = new UserGroupPermissionViewModel();
+            return View(model);
+        }
+
+        // POST: Manage/UserGroupPermission/Create
+        [HttpPost]
+        public ActionResult Create(UserGroupPermissionViewModel model)
+        {
+            try
+            {
+                // TODO: Add insert logic here
+                _userGroupPermissionService.Insert(model);
+                return RedirectToAction("Index");
+            }
+            catch
+            {
+                return View();
+            }
+        }
+
+        // GET: Manage/UserGroupPermission/Edit/5
+        public ActionResult Edit(int id)
+        {
+            var model = _userGroupPermissionService.GetById(id);
+            return View(model);
+        }
+
+        // POST: Manage/UserGroupPermission/Edit/5
+        [HttpPost]
+        public ActionResult Edit(UserGroupPermissionViewModel model)
+        {
+            try
+            {
+                // TODO: Add update logic here
+                _userGroupPermissionService.Update(model);
+                return RedirectToAction("Index");
+            }
+            catch
+            {
+                return View();
+            }
+        }
+
+        // GET: Manage/UserGroupPermission/Delete/5
+        public ActionResult Delete(int id)
+        {
+            return View();
+        }
+
+        // POST: Manage/UserGroupPermission/Delete/5
+        [HttpPost]
+        public ActionResult Delete(int id, FormCollection collection)
+        {
+            try
+            {
+                // TODO: Add delete logic here
+
+                return RedirectToAction("Index");
+            }
+            catch
+            {
+                return View();
+            }
+        }
+    }
+}
+que es la vida
