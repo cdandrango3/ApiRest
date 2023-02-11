@@ -2,7 +2,7 @@ import os
 import re
 import openai
 
-openai.api_key = "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"
+openai.api_key = "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"
 
 topic = "ai research project"
 prompt = ""

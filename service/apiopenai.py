@@ -2,7 +2,7 @@ import openai
 import re
 import os
 class OpenAirequest:
-    openai.api_key = "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"
+    openai.api_key = "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"
     model_engine = "text-davinci-003"
     topic = "airesearchproject"
     prompt = ""
