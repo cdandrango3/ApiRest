@@ -1,9 +1,10 @@
-from fastapi import FastAPI, Body
+from fastapi import FastAPI, Body, HTTPException
 import os
 from model.dataOpenAi import dataOpenApi
 from service.apiopenai import OpenAirequest
 from fastapi.middleware.cors import CORSMiddleware
 from service.opeaiwithshortcontext import OpenAiContextShort
+from starlette.responses import JSONResponse
 app = FastAPI()
 origins = ["*"]
 app.add_middleware(
@@ -26,7 +27,10 @@ async def create_item(item: dataOpenApi):
 openapiwithcontext=OpenAiContextShort()
 @app.post("/chatapiwithshortcontext/")
 async def create_item(item: dataOpenApi):
-        data=openapiwithcontext.requestApi(item.prompt)
-        return data
+        try:
+            data=openapiwithcontext.requestApi(item.prompt)
+            return JSONResponse(status_code=200, content={"message": data})
+        except Exception as e:
+           return JSONResponse(status_code=500, content={"message": "Error in OpenAi Api"})
 
 
