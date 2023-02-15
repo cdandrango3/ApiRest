@@ -31,6 +31,6 @@ async def create_item(item: dataOpenApi):
             data=openapiwithcontext.requestApi(item.prompt)
             return JSONResponse(status_code=200, content={"message": data})
         except Exception as e:
-           return JSONResponse(status_code=500, content={"message": "Error in OpenAi Api"})
+           return JSONResponse(status_code=500, content={str(e)})
 
 

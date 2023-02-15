@@ -2,7 +2,7 @@ import os
 import re
 import openai
 class OpenAiContextShort:
-    openai.api_key = "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"
+    openai.api_key = "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"
     context = []
     response = ""
     def get_last_5_summary_chats(self,chats):
@@ -26,7 +26,8 @@ class OpenAiContextShort:
                 presence_penalty=0
         )
                 self.context.append([prompt, response["choices"][0]["text"]])
-                return response["choices"][0]["text"] + "\n"
+            
+                return re.sub("[A-Za-z]+[0-9]+ \?","",response["choices"][0]["text"]) + "\n"
 
     
         
